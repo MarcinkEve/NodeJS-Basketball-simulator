@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <title>Basketball match</title>
+  </head>
+  <body>
+    <!-- 
+    Sukurti forma frontende su siais laukeliais: roundas, data, lokacija, laikas, 
+  komanda-1, komanda-2.
+    Javascript pagalba paimti laukeliu informacija ir istatyti ju reiksmes 
+  i dizaino maketa.
+    Po duomnu supildymo laukeliu reiksmes turi tapti tusciomis.
+  
+  Sukurkite POST routerį backend platformoje. Į routerį perduokite laiko reikšmę 
+  ir sutikrinkite ją. Leiskite priskirti duomenis į dizainą tik tokiu atveju, 
+  jei įvestas laikas yra tarp 18:00 ir 21:30. Priešingu atveju išveskite žinutę: 
+  "Netinkamas mačo laikas".-->
+    <div class="red"></div>
+    <div class="content">
+      <div class="top-line">
+        <ul class="list-line">
+          <li class="round"></li>
+          <li class="date"></li>
+          <li class="stadium"></li>
+          <li class="time"></li>
+        </ul>
+      </div>
+
+      <div class="bottom">
+        <div class="team">
+          <div class="team-logo one">
+            <!-- <img class="logo one" src="./img/Olympiacos.png" alt="logo" /> -->
+          </div>
+          <div class="team-name first"></div>
+        </div>
+
+        <div class="center-column">
+          <div class="scores">
+            <div class="team-scores f-scores"></div>
+            <div class="team-scores s-scores"></div>
+          </div>
+          <div class="match-stage"></div>
+          <div class="button-holder">
+            <button class="button renew">Renew data</button>
+          </div>
+                 </div>
+
+        <div class="team">
+          <div class="team-logo two">
+            <!-- <img class="logo two" src="./img/Istanbul.png" alt="logo" /> -->
+          </div>
+          <div class="team-name second"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div clas="btn-hold">
+      <button class="button btn start-match">Naujos rungtynės</button>
+    </div>
+    <div class="message"></div>
+    <div class="forma">
+      <form
+        method="POST"
+        action="/post-request"
+        enctype="multipart/form-data"
+        id="naujas-macas"
+      >
+        <label>Round</label>
+        <br />
+        <input type="number" placeholder="Type here..." name="round" />
+        <br />
+        <label>Date</label>
+        <br />
+        <input type="date" placeholder="Type here..." name="date" />
+        <br />
+        <label>Location</label>
+        <br />
+        <select name="location">
+          <option value="Peace And Friendship Stadium">
+            Peace And Friendship Stadium
+          </option>
+          <option value="Žalgirio arena">Žalgirio arena</option>
+          <option value="Kauno sporto halė">Kauno sporto halė</option>
+        </select>
+        <br />
+        <label>Time</label>
+        <br />
+        <input type="time" placeholder="Type here..." name="time" />
+        <br />
+        <label>Team-1</label>
+        <br />
+        <select name="team-1">
+          <option value="Olympiacos Piraeus">Olympiacos Piraeus</option>
+          <option value="Anadolu Efes Istanbul">Anadolu Efes Istanbul</option>
+        </select>
+        <br />
+        <label>Team-2</label>
+        <br />
+        <select name="team-2">
+          <option value="Olympiacos Piraeus">Olympiacos Piraeus</option>
+          <option value="Anadolu Efes Istanbul">Anadolu Efes Istanbul</option>
+        </select>
+        <br />
+
+        <button id="run-match" class="btn button" type="submit">Search</button>
+      </form>
+    </div>
+  
+    <div class="blue"></div>
+    <script type="text/javascript" src="/app.js"></script>
+  </body>
+</html>

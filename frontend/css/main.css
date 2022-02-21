@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/img/BG.webp");
+  background-size: cover;
+  background-position: center;
+  font-weight: bold;
+  color: white;
+  font-family: "Mulish", sans-serif;
+  font-weight: 100;
+  height: 100vh;
+}
+#naujas-macas {
+  display: none;
+}
+/* .message {
+  display: none;
+} */
+.forma{
+  z-index: 2;
+  width: 40vw;
+}
+form {
+  transform: translate(0, 10%);
+  display: block;
+  width: 35vw;
+  border: 5px solid beige;
+  padding: 1rem;
+}
+label {
+  margin-top: 5rem;
+}
+input,
+select,
+option {
+  width: 100%;
+  margin-bottom: 1rem;
+  /* padaro visus input laukelius vienodo dydzio */
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 0.5rem;
+ }
+
+.btn {
+  margin-top: 2rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  border: 2px solid white;
+}
+.btn-hold {
+  display: flex;
+  align-self: center;
+}
+
+.red:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 100vh solid transparent;
+  border-left: 150px solid #d1061f;
+  width: 0;
+}
+.blue:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 100vh solid transparent;
+  border-right: 150px solid #002d74;
+  width: 0;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.top-line {
+  display: flex;
+  width: 40vw;
+  padding: 0.3rem;
+  background-color: hsl(0, 100%, 0%, 0.4);
+  border-radius: 5px;
+}
+.list-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 15px;
+  width: 40vw;
+  font-size: 15px;
+  color: white;
+}
+li {
+  display: flex;
+  justify-self: center;
+  padding: 0rem, 2rem;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+}
+.bottom {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  /* margin-left: 5rem; */
+  margin-top: 8rem;
+}
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  align-content: center;
+  width: 25%;
+  text-align: center;
+  margin: 0rem 3rem;
+  margin-top: 2rem;
+  z-index: 2;
+}
+.team-name {
+  font-family: "Mulish", sans-serif;
+  padding: 0.5rem;
+  font-size: 36px;
+  z-index: 2;
+}
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0rem 2rem;
+}
+.scores {
+  display: flex;
+  flex-direction: row;
+  /* padding-top: 1rem; */
+  padding-bottom: 1rem;
+  background-color: black;
+  font-family: "Teko", sans-serif;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.team-scores {
+  padding: 0rem 2rem;
+  font-size: 120px;
+  font-weight: bold;
+}
+.team-scores:first-child {
+  border-right: 1px solid grey;
+  /* height: 40%;
+  top: 80%;
+  bottom: 0; */
+}
+.match-stage {
+  background-color: white;
+  padding: 0.5rem;
+  color: black;
+  font-family: "Mulish", sans-serif;
+}
+.button-holder {
+  border-radius: 50px;
+  border: 1px solid white;
+  margin-top: 10rem;
+}
+.button {
+  font-family: "Mulish", sans-serif;
+  background-color: transparent;
+  color: white;
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+}
