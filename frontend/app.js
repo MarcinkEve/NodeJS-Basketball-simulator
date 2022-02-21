@@ -62,6 +62,8 @@ document.querySelector(".two").style.display = "none";
 document.querySelector(".match-stage").style.display = "none";
 document.querySelector(".scores").style.display = "none";
 
+
+
 document.querySelector(".start-match").addEventListener("click", () => {
   //console.log("test");
   //if (document.querySelector("#naujas-macas").style.display === "none") {
@@ -83,6 +85,8 @@ document.querySelector(".start-match").addEventListener("click", () => {
   document.querySelector(".time").innerHTML = "";
   document.querySelector(".bottom").style.display = "none";
 });
+
+
 
 document.querySelector("#run-match").addEventListener("click", (event) => {
   if (document.querySelector("#naujas-macas").style.display === "block") {
@@ -113,9 +117,9 @@ document.querySelector("#run-match").addEventListener("click", (event) => {
   })
     .then((resp) => resp.json())
     .then((resp) => {
-      if(resp.pavyko) {
+      if (resp.pavyko) {
         //console.log("resp", resp);
-      
+
         document.querySelector(".round").innerText = `Round ${round}`;
         document.querySelector(".date").innerHTML = date;
         document.querySelector(".stadium").innerHTML = loc;
@@ -139,13 +143,31 @@ document.querySelector("#run-match").addEventListener("click", (event) => {
         document.querySelector(".match-stage").style.display = "block";
         document.querySelector(".scores").style.display = "flex";
         document.querySelector(".message").style.display = "none";
-
       } else {
         document.querySelector(".message").innerHTML = `<h1>${resp.message}`;
-        document.querySelector(".top-line").style.display = "none";  
+        document.querySelector(".top-line").style.display = "none";
         document.querySelector(".run-match").style.display = "display";
-
       }
-    
     });
 });
+
+document.querySelector("#save-data").addEventListener("click", (event) => {
+  // let round = document.querySelector('#naujas-macas input[name="round"]').value;
+  // let date = document.querySelector('#naujas-macas input[name="date"]').value;
+  // let loc = document.querySelector('#naujas-macas select[name="location"]').value;
+  // let time = document.querySelector('#naujas-macas input[name="time"]').value;
+  // let team1 = document.querySelector('#naujas-macas select[name="team-1"]').value;
+  // let team2 = document.querySelector('#naujas-macas select[name="team-2"]').value;
+ let newDate = document.querySelector('#nauja-forma input[name="date"]').value;
+
+  fetch("http://localhost:3001/save-request", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    // body: JSON.stringify({ round, date, loc, time, team1, team2 }),
+     body: JSON.stringify({ newDate }),
+  })
+    .then((resp) => resp.json())
+    .then((resp) => {
+      console.log(resp);
+    });
+  });

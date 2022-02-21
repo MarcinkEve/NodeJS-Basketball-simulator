@@ -3,6 +3,7 @@
 import express from "express";
 import cors from "cors";
 import Krepsinis from "./krepsinis.js";
+import { writeFile as wf, readFile, stat } from "fs";
 
 const app = express();
 
@@ -37,7 +38,7 @@ app.post("/post-request", (req, res) => {
   };
 
   console.log("body", req.body);
-  let message = '';
+  let message = "";
   let reqbody = req.body;
   if (req.body.time >= "18:00" && req.body.time <= "21:30") {
     console.log("laikas tinkamas");
@@ -46,8 +47,22 @@ app.post("/post-request", (req, res) => {
     console.log("Netinkamas rungtyniu laikas");
     message = "Netinkamas rungtyniu laikas";
 
-    res.json({message, pavyko: false});
+    res.json({ message, pavyko: false });
   }
+});
+
+
+app.post("/save-request", (req, res) => {
+  // let data = JSON.parse(req.body)
+
+  wf("./db/data.json", JSON.stringify(req.body), "utf8", (err) => {
+    console.log(err)
+    if (!err) {
+      res.json("Informacija issaugota");
+    } else {
+      res.json("Nepavyko sukurti failo");
+    }
+  });
 });
 
 app.listen(3001);
