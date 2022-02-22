@@ -17,6 +17,7 @@ Run file:
 
 - in current directory open new terminal and write in console
  
+ > npm i
  <!-- > npm i -D dead-server -->
 
  > npm run dev
@@ -32,6 +33,7 @@ It runs on it's own server at `http://localhost:3001`
 
 - in current directory open new terminal and write in console
 
+ > npm i
  <!-- > npm i express
 
  > npm i --save-dev nodemon
