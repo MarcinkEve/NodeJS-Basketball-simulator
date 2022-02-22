@@ -1,4 +1,4 @@
-# Baskeball match simulator
+# Basketball match simulator
 
 This simulator show the simple basketball game website monitoring.
 
