@@ -51,12 +51,15 @@ app.post("/post-request", (req, res) => {
   }
 });
 
+// app.get("/", (req, res) => {
+//   res.send('test')
+// })
 
 app.post("/save-request", (req, res) => {
   // let data = JSON.parse(req.body)
-
+console.log("req", req.body)
   wf("./db/data.json", JSON.stringify(req.body), "utf8", (err) => {
-    console.log(err)
+    //console.log("err", err)
     if (!err) {
       res.json("Informacija issaugota");
     } else {

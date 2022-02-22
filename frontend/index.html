@@ -60,7 +60,7 @@
           <div class="button-holder">
             <button class="button renew">Renew data</button>
           </div>
-                 </div>
+        </div>
 
         <div class="team">
           <div class="team-logo two">
@@ -70,9 +70,9 @@
         </div>
       </div>
     </div>
-    
+
     <div clas="btn-hold">
-      <button class="button btn start-match">Naujos rungtynės</button>
+      <button class="button btn new-match">Naujos rungtynės</button>
     </div>
     <div class="message"></div>
     <div class="forma">
@@ -80,7 +80,7 @@
         method="POST"
         action="/post-request"
         enctype="multipart/form-data"
-        id="naujas-macas"
+        id="search-form"
       >
         <label>Round</label>
         <br />
@@ -119,18 +119,21 @@
         </select>
         <br />
 
-        <button id="run-match" class="btn button" type="submit">Search</button>
+        <button id="search" class="btn button" type="submit">Search</button>
       </form>
-      <form method="POST"
-      action="/save-request"
-      enctype="multipart/form-data"
-      id="nauja-forma" >
-      <label>Date</label>
-      <br />
-      <input type="date" placeholder="Type here..." name="date" />
-      <button id="save-data" class="btn button" type="submit">Save</button>
+      <form
+        method="POST"
+        action="/save-request"
+        enctype="multipart/form-data"
+        id="nauja-forma"
+      >
+        <label>Date</label>
+        <br />
+        <input type="date" placeholder="Type here..." name="date" />
+        <button id="save-data" class="btn button" type="submit">Save</button>
+      </form>
     </div>
-  
+
     <div class="blue"></div>
     <script type="text/javascript" src="/app.js"></script>
   </body>

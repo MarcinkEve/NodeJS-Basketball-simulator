@@ -64,20 +64,20 @@ document.querySelector(".scores").style.display = "none";
 
 
 
-document.querySelector(".start-match").addEventListener("click", () => {
+document.querySelector(".new-match").addEventListener("click", () => {
   //console.log("test");
-  //if (document.querySelector("#naujas-macas").style.display === "none") {
-  document.querySelector("#naujas-macas").style.display = "block";
+  //if (document.querySelector("#search-form").style.display === "none") {
+  document.querySelector("#search-form").style.display = "block";
   // } else {
-  //   document.querySelector("#naujas-macas").style.display = "none";
+  //   document.querySelector("#search-form").style.display = "none";
   //}
 
-  document.querySelector('#naujas-macas input[name="round"]').value = "";
-  document.querySelector('#naujas-macas input[name="date"]').value = "";
-  document.querySelector('#naujas-macas select[name="location"]').value = "";
-  document.querySelector('#naujas-macas input[name="time"]').value = "";
-  document.querySelector('#naujas-macas select[name="team-1"]').value = "";
-  document.querySelector('#naujas-macas select[name="team-2"]').value = "";
+  document.querySelector('#search-form input[name="round"]').value = "";
+  document.querySelector('#search-form input[name="date"]').value = "";
+  document.querySelector('#search-form select[name="location"]').value = "";
+  document.querySelector('#search-form input[name="time"]').value = "";
+  document.querySelector('#search-form select[name="team-1"]').value = "";
+  document.querySelector('#search-form select[name="team-2"]').value = "";
   document.querySelector(".renew").innerHTML = "";
   document.querySelector(".round").innerText = "";
   document.querySelector(".date").innerHTML = "";
@@ -88,27 +88,27 @@ document.querySelector(".start-match").addEventListener("click", () => {
 
 
 
-document.querySelector("#run-match").addEventListener("click", (event) => {
-  if (document.querySelector("#naujas-macas").style.display === "block") {
-    document.querySelector("#naujas-macas").style.display = "none";
+document.querySelector("#search").addEventListener("click", (event) => {
+  if (document.querySelector("#search-form").style.display === "block") {
+    document.querySelector("#search-form").style.display = "none";
   } else {
-    document.querySelector("#naujas-macas").style.display = "display";
+    document.querySelector("#search-form").style.display = "display";
   }
 
   event.preventDefault(); //skirtas sustabdyti standartini HTML elementu veikima
 
-  let round = document.querySelector('#naujas-macas input[name="round"]').value; //paimama ivesta i input reiksme
-  document.querySelector('#naujas-macas input[name="round"]').value = ""; //padarom tuscias reiksmes, kad paspaudus mygtuka "SEARCH" visos input reiksmes "nusinulintu'
-  let date = document.querySelector('#naujas-macas input[name="date"]').value;
-  document.querySelector('#naujas-macas input[name="date"]').value = "";
-  let loc = document.querySelector('#naujas-macas select[name="location"]').value;
-  document.querySelector('#naujas-macas select[name="location"]').value = "";
-  let time = document.querySelector('#naujas-macas input[name="time"]').value;
-  document.querySelector('#naujas-macas input[name="time"]').value = "";
-  let team1 = document.querySelector('#naujas-macas select[name="team-1"]').value;
-  document.querySelector('#naujas-macas select[name="team-1"]').value = "";
-  let team2 = document.querySelector('#naujas-macas select[name="team-2"]').value;
-  document.querySelector('#naujas-macas select[name="team-2"]').value = "";
+  let round = document.querySelector('#search-form input[name="round"]').value; //paimama ivesta i input reiksme
+  document.querySelector('#search-form input[name="round"]').value = ""; //padarom tuscias reiksmes, kad paspaudus mygtuka "SEARCH" visos input reiksmes "nusinulintu'
+  let date = document.querySelector('#search-form input[name="date"]').value;
+  document.querySelector('#search-form input[name="date"]').value = "";
+  let loc = document.querySelector('#search-form select[name="location"]').value;
+  document.querySelector('#search-form select[name="location"]').value = "";
+  let time = document.querySelector('#search-form input[name="time"]').value;
+  document.querySelector('#search-form input[name="time"]').value = "";
+  let team1 = document.querySelector('#search-form select[name="team-1"]').value;
+  document.querySelector('#search-form select[name="team-1"]').value = "";
+  let team2 = document.querySelector('#search-form select[name="team-2"]').value;
+  document.querySelector('#search-form select[name="team-2"]').value = "";
 
   fetch("http://localhost:3001/post-request", {
     method: "POST",
@@ -146,18 +146,19 @@ document.querySelector("#run-match").addEventListener("click", (event) => {
       } else {
         document.querySelector(".message").innerHTML = `<h1>${resp.message}`;
         document.querySelector(".top-line").style.display = "none";
-        document.querySelector(".run-match").style.display = "display";
+        //document.querySelector(".search").style.display = "block";
       }
     });
 });
 
 document.querySelector("#save-data").addEventListener("click", (event) => {
-  // let round = document.querySelector('#naujas-macas input[name="round"]').value;
-  // let date = document.querySelector('#naujas-macas input[name="date"]').value;
-  // let loc = document.querySelector('#naujas-macas select[name="location"]').value;
-  // let time = document.querySelector('#naujas-macas input[name="time"]').value;
-  // let team1 = document.querySelector('#naujas-macas select[name="team-1"]').value;
-  // let team2 = document.querySelector('#naujas-macas select[name="team-2"]').value;
+  event.preventDefault();
+  // let round = document.querySelector('#search-form input[name="round"]').value;
+  // let date = document.querySelector('#search-form input[name="date"]').value;
+  // let loc = document.querySelector('#search-form select[name="location"]').value;
+  // let time = document.querySelector('#search-form input[name="time"]').value;
+  // let team1 = document.querySelector('#search-form select[name="team-1"]').value;
+  // let team2 = document.querySelector('#search-form select[name="team-2"]').value;
  let newDate = document.querySelector('#nauja-forma input[name="date"]').value;
 
   fetch("http://localhost:3001/save-request", {
